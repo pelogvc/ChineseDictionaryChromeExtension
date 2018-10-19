@@ -26,7 +26,7 @@ var _parser = function(data) {
 
         // 핑잉
         if ( data.searchResults.searchResultsOrder[i].pinyin ) {
-            ret += `<span>(` + data.searchResults.searchResultsOrder[i].pinyin + `)<span>`;
+            ret += `<span>(` + data.searchResults.searchResultsOrder[i].pinyin + `)</span>`;
         }
 
         // 뜻 목록
@@ -36,7 +36,7 @@ var _parser = function(data) {
             if ( data.searchResults.searchResultsOrder[i].meanList[k].partsLabel ) {
                 ret += `<span class="parts">` + data.searchResults.searchResultsOrder[i].meanList[k].partsLabel + `</span>`;
             }
-            ret += `<span>` + data.searchResults.searchResultsOrder[i].meanList[k].mean + `<span>`;
+            ret += `<span>` + data.searchResults.searchResultsOrder[i].meanList[k].mean + `</span>`;
             ret += `</li>`;
         }
 
