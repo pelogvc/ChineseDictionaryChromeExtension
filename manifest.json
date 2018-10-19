@@ -1,9 +1,11 @@
 {
     "manifest_version": 2,
     "name": "네이버 중국어사전",
-    "version": "0.0.2",
-
+    "description": "네이버 중국어 사전 크롬 익스텐션 (비공식)",
+    "version": "0.0.3",
+    "homepage_url": "https://github.com/pelogvc/ChineseDictionaryChromeExtension",
     "browser_action": {
+        "default_icon": "ico.png",
         "default_popup": "popup.html"
     },
     "background": {
