@@ -79,10 +79,7 @@ var _closeChineseDictionaryWindow = function() {
 var _gotoParentFrame = function (e) {
 
     // 다른 스크립트에서도 쓸수있기때문에..
-    if ( 
-        !e.data && 
-        !( e.data.chinese_dictionary_window || e.data.chinese_dictionary_word )
-        ) {
+    if ( !e.data || !( e.data.chinese_dictionary_window || e.data.chinese_dictionary_word ) ) {
         return;
     }
 
