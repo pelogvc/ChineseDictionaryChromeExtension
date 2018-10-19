@@ -2,9 +2,9 @@ var selectedText = '';
 var isInIframe = top !== self;
 
 var _parser = function(data) {
-    //$('body').html(data);
+
     data = JSON.parse(data);
-    console.log(data.searchResults);
+    //console.log(data.searchResults);
 
     $('#chrome_extension_chinese_dictionary').addClass('open');
 
@@ -58,6 +58,8 @@ var _parser = function(data) {
 
 var _gotoParsing = function (word) {
 
+    _createChineseDictionaryDiv();
+
     proxyXHR.get('https://zh.dict.naver.com/cndictApi/search/all?sLn=ko&q=' + encodeURIComponent(word) + '&mode=pc&pageNo=1&format=json&hid=153989713248236640')
         .onSuccess(_parser)
         .onFailure(function () {
@@ -108,10 +110,11 @@ var _gotoParentFrame = function (e) {
 
 }
 
-var __initChineseDictionary = function () {
-    
+var _createChineseDictionaryDiv = function () {
+
     if ( !$('body').length ) return;
 
+    if ( $('#chrome_extension_chinese_dictionary').length ) return;
     if ( !isInIframe ) {
         $('body').append(`
             <div id="chrome_extension_chinese_dictionary">
@@ -126,6 +129,11 @@ var __initChineseDictionary = function () {
             </div>
         `);
     }
+}
+
+var __initChineseDictionary = function () {
+
+    _createChineseDictionaryDiv();
 
     window.addEventListener('message', _gotoParentFrame);
 
