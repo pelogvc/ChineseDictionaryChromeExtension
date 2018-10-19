@@ -108,7 +108,7 @@ var _gotoParentFrame = function (e) {
 
 }
 
-var __init = function () {
+var __initChineseDictionary = function () {
     
     if ( !$('body').length ) return;
 
@@ -154,5 +154,5 @@ var __init = function () {
 }
 
 $(document).ready(function() {    
-    __init();
+    __initChineseDictionary();
 });
