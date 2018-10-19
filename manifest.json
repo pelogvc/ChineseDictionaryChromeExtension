@@ -1,0 +1,42 @@
+{
+    "manifest_version": 2,
+    "name": "네이버 중국어사전",
+    "version": "0.0.2",
+
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": [
+            "lib/jquery-3.3.1.js",
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "permissions": [
+        "tabs",
+        "http://*/*", 
+        "https://*/*"
+    ],
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "js": [ 
+                "lib/jquery-3.3.1.js",
+                "lib/xhrproxy.js",
+                "lib/utils.js",
+                "main.js"
+            ],
+            "css" : [
+                "all.css"
+            ],
+            "matches": [ 
+                "http://*/*", 
+                "https://*/*"
+            ]
+        }
+    ], 
+    "web_accessible_resources": [
+        "all.css"
+    ]
+}
