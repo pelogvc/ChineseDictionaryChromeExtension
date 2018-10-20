@@ -17,4 +17,5 @@ $(document).ready(function() {
         }
     });
 
+    $('#chrome_extension_chinese_tab input[type="text"]').focus();
 });

@@ -116,8 +116,11 @@
 }
 #chrome_extension_chinese_tab>.search {
     margin:10px 0;
-    height:30px;
+    height:25px;
     position: relative;
+}
+#chrome_extension_chinese_tab>.search>input {
+    outline:none;
 }
 #chrome_extension_chinese_tab>.search>input[type="text"] {
     width: 245px;
