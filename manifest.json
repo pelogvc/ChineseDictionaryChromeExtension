@@ -27,8 +27,7 @@
                 "lib/jquery-3.3.1.js",
                 "lib/xhrproxy.js",
                 "lib/utils.js",
-                "main.js",
-                "popup.js"
+                "main.js"
             ],
             "css" : [
                 "all.css"
