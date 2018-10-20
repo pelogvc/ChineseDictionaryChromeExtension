@@ -2,11 +2,22 @@
 <html lang="ko">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="all.css">
 </head>
 <body>
-<div style="width:300px;">
-    이 기능은 제작중입니다.<br>
-    중국어를 드래그 하시면 해당 단어의 뜻풀이가 나옵니다.
+<div id="chrome_extension_chinese_tab">
+    <div class="search">
+        <input type="text" value="" placeholder="검색할 단어를 입력하세요." />
+        <input type="submit" value="搜索" />
+    </div>
+    <div id="chrome_extension_chinese_dictionary">
+        <div class="content">
+        <div>
+    </div>
 </div>
+<script src="lib/jquery-3.3.1.js"></script>
+<script src="lib/xhrproxy.js"></script>
+<script src="lib/utils.js"></script>
+<script src="popup.js"></script>
 </body>
 </html>
