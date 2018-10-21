@@ -40,6 +40,7 @@
 #chrome_extension_chinese_dictionary .content {
     height: 270px;
     padding:5px;
+    overflow-x: hidden;
     overflow-y: scroll;
     box-sizing: border-box;
 }
@@ -117,6 +118,7 @@
 #chrome_extension_chinese_dictionary .content ul.means>li {
     margin-top:3px;
     font-size:13px;
+    width: 270px;
 }
 #chrome_extension_chinese_dictionary .content ul.means>li>span{
     vertical-align: top;
