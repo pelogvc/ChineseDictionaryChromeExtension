@@ -38,7 +38,7 @@
 }
 
 #chrome_extension_chinese_dictionary .content {
-    min-height: 270px;
+    height: 270px;
     padding:5px;
     overflow-y: scroll;
     box-sizing: border-box;
@@ -75,8 +75,14 @@
     vertical-align: middle;
     font-family: "Microsoft Yahei, simsun, Arial, NanumGothic, Dotum, sans-serif";
 }
+#chrome_extension_chinese_dictionary .content ul.words>li>p>a {
+    text-decoration: none;
+    color:#333;
+    font-family: "Microsoft Yahei, simsun, Arial, NanumGothic, Dotum, sans-serif";
+}
 #chrome_extension_chinese_dictionary .content ul.words>li>p>strong {
     font-family: "Microsoft Yahei, simsun, Arial, NanumGothic, Dotum, sans-serif";
+    color:#333;
 }
 #chrome_extension_chinese_dictionary .content ul.words>li>span {
     vertical-align: middle;
@@ -84,10 +90,29 @@
     margin-left:5px;
 }
 #chrome_extension_chinese_dictionary .content ul.means>li.source {
-    margin:5px 0;
-    font-size:13px;
+    margin:0;
+    font-size:12px;
     color:#999;
 }
+
+/* 예문 */
+#chrome_extension_chinese_dictionary .content ul.words>li.example {
+
+}
+#chrome_extension_chinese_dictionary .content ul.words>li.example>span {
+    display:block;
+}
+/*
+#chrome_extension_chinese_dictionary .content ul.words>li>span.example {
+    display:block;
+}
+#chrome_extension_chinese_dictionary .content ul.words>li>span.examplePinyin {
+    display:block;
+}
+#chrome_extension_chinese_dictionary .content ul.words>li>span.exampleFanyi {
+    display:block;
+}
+*/
 
 #chrome_extension_chinese_dictionary .content ul.means>li {
     margin-top:3px;
@@ -109,6 +134,15 @@
     vertical-align: top;
     margin:0 5px;
     letter-spacing: -1px;
+}
+#chrome_extension_chinese_dictionary .content ul.means>li>span.mean {
+    font-size:15px;
+}
+#chrome_extension_chinese_dictionary .content ul.means>li>span.destEntry {
+    font-size:15px;
+}
+#chrome_extension_chinese_dictionary .content ul.means>li>span.destEntry>span.pinyin {
+    font-size:12px;
 }
 
 #chrome_extension_chinese_tab {
