@@ -3,14 +3,13 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import store from './redux';
+import store from 'store';
 import './App.scss';
 import { Icon } from 'antd';
 import Menu from 'containers/MenuContainer';
 import Recently from 'containers/RecentlyContainer';
 import Setting from 'containers/SettingContainer';
 import Notice from 'containers/NoticeContainer';
-import { registerDecorator } from 'handlebars';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -19,7 +18,7 @@ const reduxstore = createStore(
   applyMiddleware(sagaMiddleware)
 );
 
-//sagaMiddleware.run(helloSaga);
+//sagaMiddleware.run(rootSaga);
 
 class App extends Component {
 
@@ -71,7 +70,7 @@ class App extends Component {
               setPage={this.setPage}
             ></Menu>
             <div className="App-header-footer">
-              <a href="https://github.com/pelogvc/ChineseDictionaryChromeExtension" target="_blank">
+              <a href="https://github.com/pelogvc/ChineseDictionaryChromeExtension" target="_blank" without rel="noopener noreferrer">
               <Icon type="github" />
               pelogvc
               </a>

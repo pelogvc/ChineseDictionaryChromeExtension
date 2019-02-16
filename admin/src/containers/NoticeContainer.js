@@ -18,6 +18,7 @@ class NoticeContainer extends Component {
                     <ul>
                         <li>단어장 기능 추가</li>
                         <li>안내 화면 추가</li>
+                        <li>검색 기능 개선</li>
                     </ul>
                 </p>
                 <p>
