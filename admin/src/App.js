@@ -18,7 +18,7 @@ const reduxstore = createStore(
   applyMiddleware(sagaMiddleware)
 );
 
-//sagaMiddleware.run(rootSaga);
+// sagaMiddleware.run(rootSaga);
 
 class App extends Component {
 
@@ -32,9 +32,16 @@ class App extends Component {
     this.setPage = this.setPage.bind(this);
   }
 
+  componentDidMount() {
+    const page = this.getPage();
+    if ( this.state.page !== page ) {
+      this.setPage(page);
+    }
+  }
+
   getPage = () => {
-    let query = new URLSearchParams(window.location.search)
-    let page = query.get('page');
+    const query = new URLSearchParams(window.location.search)
+    const page = query.get('page');
 
     if (!page) return 'notice';
     return page;
@@ -47,39 +54,31 @@ class App extends Component {
     window.history.pushState('', `${page}`, `?page=${page}`);
   }
 
-  componentDidMount() {
-    let page = this.getPage();
-    if ( this.state.page !== page ) {
-      this.setPage(page);
-    }
-  }
-
-
   render() {
 
     return (
-      <Provider store={reduxstore} >
+      <Provider store={reduxstore}>
         <div className="App">
           <header className="App-header">
             <div className="App-logo">
-              { /*<img src={logo} />*/ }
+              { /* <img src={logo} /> */ }
               네이버 중국어 사전
             </div>
             <Menu 
               page={this.state.page}
               setPage={this.setPage}
-            ></Menu>
+            />
             <div className="App-header-footer">
               <a href="https://github.com/pelogvc/ChineseDictionaryChromeExtension" target="_blank" without rel="noopener noreferrer">
-              <Icon type="github" />
+                <Icon type="github" />
               pelogvc
               </a>
             </div>
           </header>
           <div className="App-main">
-            { this.state.page === 'notice' && <Notice></Notice> }
-            { this.state.page === 'setting' && <Setting></Setting> }
-            { this.state.page === 'recently' && <Recently></Recently> }
+            { this.state.page === 'notice' && <Notice /> }
+            { this.state.page === 'setting' && <Setting /> }
+            { this.state.page === 'recently' && <Recently /> }
           </div>
         </div>
       </Provider>

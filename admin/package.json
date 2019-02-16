@@ -5,6 +5,8 @@
   "dependencies": {
     "antd": "^3.13.2",
     "dexie": "^2.0.4",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.0.0",
     "node-sass": "^4.11.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
@@ -20,7 +22,19 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "airbnb",
+      "prettier"
+    ],
+    "rules": {
+      "react/prefer-stateless-function": 0,
+      "react/jsx-filename-extension": 0,
+      "react/jsx-one-expression-per-line": 0
+    },
+    "env": {
+      "browser": true
+    }
   },
   "browserslist": [
     ">0.2%",
