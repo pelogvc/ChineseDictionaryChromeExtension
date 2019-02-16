@@ -43,53 +43,6 @@ chrome.extension.onConnect.addListener(function(port) {
           }));
         }
       });
-      //}
-
-      // 5분전 이후로 검색된 같은단어가 있는지?
-
-      /*
-      let idb;
-      const request = window.indexedDB.open('dictionary', 1);
-
-      request.onerror = function (event) {
-        console.log('에러발생');
-        // Do something
-      };
-      
-      request.onsuccess = function (event) {
-        idb = request.result;
-        var transaction = idb.transaction(["recentlyWords"], "readwrite");
-        var objectStore = transaction.objectStore("recentlyWords");
-
-        var currentDate = new Date();
-        var latestDate = new Date();
-        latestDate.setMinutes((currentDate.getMinutes() -5));
-        
-        // 5분전 이후로 검색된 같은단어가 있는지?
-        var index = objectStore.index('latestIdx');
-        var range = IDBKeyRange.bound([data.query, latestDate], [data.query, currentDate]);
-        index.openCursor(range).onsuccess = function (e) {
-          var cursor = e.target.result;
-
-          if ( !cursor ) {
-            // 추가하기
-            objectStore.add(Object.assign(data, {
-              created: currentDate,
-            }));
-          }
-        }
-        
-      };
-      
-      request.onupgradeneeded = function (event) {
-        const idb = event.target.result;
-      
-        const objectStore = idb.createObjectStore('recentlyWords', { keyPath: "id", autoIncrement:true });
-        objectStore.createIndex('created', 'created', { unique: false });
-        objectStore.createIndex('query', 'query', { unique: false  });
-        objectStore.createIndex('latestIdx', ['query', 'created'], { unique: false });
-      };
-      */
 
     });
   } 
