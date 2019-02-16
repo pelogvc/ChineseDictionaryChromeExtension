@@ -26,7 +26,28 @@ chrome.extension.onConnect.addListener(function(port) {
     port.onMessage.addListener(function(data) {
 
       if ( !data || !data.query ) return;
-      
+
+      const db = new Dexie('dictionary');
+      db.version(1).stores({
+          recentlyWords: `++id, query, created, title, url, [query+created]`
+      });
+
+      var currentDate = new Date();
+      var latestDate = new Date();
+      latestDate.setMinutes((currentDate.getMinutes() -5));
+
+      let cursor = db.table('recentlyWords').where('[query+created]').between([data.query, latestDate], [data.query, currentDate]).toArray().then(function (cursor) {
+        if ( !cursor.length ) {
+          db.table('recentlyWords').add(Object.assign(data, {
+            created: currentDate,
+          }));
+        }
+      });
+      //}
+
+      // 5분전 이후로 검색된 같은단어가 있는지?
+
+      /*
       let idb;
       const request = window.indexedDB.open('dictionary', 1);
 
@@ -68,6 +89,7 @@ chrome.extension.onConnect.addListener(function(port) {
         objectStore.createIndex('query', 'query', { unique: false  });
         objectStore.createIndex('latestIdx', ['query', 'created'], { unique: false });
       };
+      */
 
     });
   } 
