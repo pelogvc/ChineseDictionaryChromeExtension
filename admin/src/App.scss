@@ -1,0 +1,52 @@
+@import '~antd/dist/antd.css';
+$leftwidth: 250px;
+
+#root {
+  height:100%;
+}
+
+.App {
+  width:100%;
+  height:100%;
+  display:flex;
+}
+
+.App-header {
+  width: $leftwidth;
+  height:100%;
+  font-family: "Apple SD Gothic Neo", AppleSDGothicNeo, "Noto Sans CJK KR", NanumGothic, "Malgun Gothic", "맑은 고딕", 돋움, dotum, arial, sans-serif;
+  box-sizing: border-box;
+  border-right: 1px solid #e8e8e8;
+  flex-direction:row;
+
+  //dark mode
+  //background: #001529;
+
+  .App-logo {
+    font-size:1.1em;
+    margin:10px;
+    img {
+      width:20px;
+      vertical-align: middle;
+      margin-left:5px;
+      margin-right:5px;
+    }
+  }
+
+  .ant-menu-inline {
+    border-right:none;  
+    li {
+      margin:0 !important;
+      height:50px;
+      line-height: 50px;
+    }
+  }
+}
+
+.App-main {
+  width: calc(100% - #{$leftwidth});
+  flex-direction:row;
+  box-sizing: border-box;
+  padding:30px 50px 0 50px;
+  background:#fbfbfb;
+}
