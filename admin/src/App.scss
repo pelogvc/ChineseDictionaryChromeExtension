@@ -33,6 +33,21 @@ $leftwidth: 250px;
     }
   }
 
+  .App-header-footer {
+    position:absolute;
+    left:5px;
+    bottom:5px;
+    vertical-align: middle;
+    a {
+      color:#bbb;
+      letter-spacing: -1px;
+    }
+    i {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  }
+
   .ant-menu-inline {
     border-right:none;  
     li {
@@ -47,6 +62,6 @@ $leftwidth: 250px;
   width: calc(100% - #{$leftwidth});
   flex-direction:row;
   box-sizing: border-box;
-  padding:30px 50px 0 50px;
+  padding:40px 50px 0 50px;
   background:#fbfbfb;
 }

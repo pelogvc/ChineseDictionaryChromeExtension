@@ -5,11 +5,12 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import store from './redux';
 import './App.scss';
-import logo from 'logo.png';
-//import { Menu, Icon } from 'antd';
+import { Icon } from 'antd';
 import Menu from 'containers/MenuContainer';
 import Recently from 'containers/RecentlyContainer';
 import Setting from 'containers/SettingContainer';
+import Notice from 'containers/NoticeContainer';
+import { registerDecorator } from 'handlebars';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -26,7 +27,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      page : 'setting'
+      page : 'notice'
     };
 
     this.setPage = this.setPage.bind(this);
@@ -36,15 +37,8 @@ class App extends Component {
     let query = new URLSearchParams(window.location.search)
     let page = query.get('page');
 
-    if (!page) return 'setting';
-    switch(page) {
-      case 'setting':
-        return 'setting';
-      case 'recently':
-        return 'recently';
-      default:
-        return 'setting';
-    }
+    if (!page) return 'notice';
+    return page;
   }
 
   setPage = (page) => {
@@ -70,14 +64,21 @@ class App extends Component {
           <header className="App-header">
             <div className="App-logo">
               { /*<img src={logo} />*/ }
-              중국어사전 관리자 페이지
+              네이버 중국어 사전
             </div>
             <Menu 
               page={this.state.page}
               setPage={this.setPage}
             ></Menu>
+            <div className="App-header-footer">
+              <a href="https://github.com/pelogvc/ChineseDictionaryChromeExtension" target="_blank">
+              <Icon type="github" />
+              pelogvc
+              </a>
+            </div>
           </header>
           <div className="App-main">
+            { this.state.page === 'notice' && <Notice></Notice> }
             { this.state.page === 'setting' && <Setting></Setting> }
             { this.state.page === 'recently' && <Recently></Recently> }
           </div>

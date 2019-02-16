@@ -11,13 +11,17 @@ const MenuComponent = ({setPage, page}) => {
             defaultSelectedKeys={[page]}
             selectedKeys={[page]}
             >
-                <Menu.Item key="setting" onClick={() => setPage('setting')}>
-                    <Icon type="setting" />
-                    설정
+                <Menu.Item key="notice" onClick={() => setPage('notice')}>
+                    <Icon type="notification" />
+                    안내
                 </Menu.Item>
                 <Menu.Item key="recently" onClick={() => setPage('recently')}>
                     <Icon type="ordered-list" />
                     단어장
+                </Menu.Item>
+                <Menu.Item key="setting" onClick={() => setPage('setting')}>
+                    <Icon type="setting" />
+                    설정
                 </Menu.Item>
             </Menu>
         </div>
