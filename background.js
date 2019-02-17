@@ -36,13 +36,22 @@ chrome.extension.onConnect.addListener(function(port) {
       var latestDate = new Date();
       latestDate.setMinutes((currentDate.getMinutes() -5));
 
-      let cursor = db.table('recentlyWords').where('[query+created]').between([data.query, latestDate], [data.query, currentDate]).toArray().then(function (cursor) {
+      db.table('recentlyWords').where('[query+created]').between([data.query, latestDate], [data.query, currentDate]).toArray().then(function (cursor) {
         if ( !cursor.length ) {
           db.table('recentlyWords').add(Object.assign(data, {
             created: currentDate,
           }));
         }
       });
+      
+
+      // backup
+      /*
+      db.table('recentlyWords').reverse().offset(0).limit(1).toArray().then(function (array) {
+        let json = JSON.stringify(array);
+        console.log(json);
+      });
+      */
 
     });
   } 

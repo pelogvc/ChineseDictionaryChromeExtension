@@ -1,7 +1,7 @@
 /* global location */
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import store from 'store';
 import './App.scss';
@@ -11,14 +11,18 @@ import Recently from 'containers/RecentlyContainer';
 import Setting from 'containers/SettingContainer';
 import Notice from 'containers/NoticeContainer';
 
+import rootSaga from 'sagas/root.js'
+
 const sagaMiddleware = createSagaMiddleware();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reduxstore = createStore(
   store, 
-  applyMiddleware(sagaMiddleware)
+  //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  composeEnhancers(applyMiddleware(sagaMiddleware))
 );
 
-// sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga);
 
 class App extends Component {
 
@@ -69,7 +73,7 @@ class App extends Component {
               setPage={this.setPage}
             />
             <div className="App-header-footer">
-              <a href="https://github.com/pelogvc/ChineseDictionaryChromeExtension" target="_blank" without rel="noopener noreferrer">
+              <a href="https://github.com/pelogvc/ChineseDictionaryChromeExtension" target="_blank" rel="noopener noreferrer">
                 <Icon type="github" />
               pelogvc
               </a>

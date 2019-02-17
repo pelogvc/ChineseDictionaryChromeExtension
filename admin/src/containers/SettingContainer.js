@@ -4,7 +4,10 @@ class SettingContainer extends Component {
     render() {
         return (
             <div>
-                SettingContainer
+                <h2>설정</h2>
+                <p>
+                    설정 페이지는 작업중 입니다.
+                </p>
             </div>
         );
     }

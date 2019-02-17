@@ -8,7 +8,8 @@ $leftwidth: 250px;
 .App {
   width:100%;
   height:100%;
-  display:flex;
+  //display:flex;
+  background: #fbfbfb;
 }
 
 .App-header {
@@ -17,7 +18,9 @@ $leftwidth: 250px;
   font-family: "Apple SD Gothic Neo", AppleSDGothicNeo, "Noto Sans CJK KR", NanumGothic, "Malgun Gothic", "맑은 고딕", 돋움, dotum, arial, sans-serif;
   box-sizing: border-box;
   border-right: 1px solid #e8e8e8;
-  flex-direction:row;
+  background: white;
+  //flex-direction:row;
+  position: fixed;
 
   //dark mode
   //background: #001529;
@@ -60,8 +63,9 @@ $leftwidth: 250px;
 
 .App-main {
   width: calc(100% - #{$leftwidth});
-  flex-direction:row;
+  //flex-direction:row;
+  margin-left: #{$leftwidth};
   box-sizing: border-box;
-  padding:40px 50px 0 50px;
+  padding:40px 50px 30px 50px;
   background:#fbfbfb;
 }

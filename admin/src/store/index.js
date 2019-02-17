@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers({
+import Recently from './Recently';
 
+export default combineReducers({
+    Recently,
 });
